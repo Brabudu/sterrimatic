@@ -1,0 +1,68 @@
+<html>
+ <head>
+	  <script src='rimas.js'></script> 
+	  <style>
+	  #pei {
+		width:30%;
+		height:200px;
+		margin: auto;
+		padding: 50px;
+		align-content: center;
+		color: white;
+		text-align:center;
+		margin-top:40px;
+	  }
+	  p {
+		margin: 50px;
+		font-size: larger;
+		width: 50%;
+		line-height: 3;
+	  }
+	  
+	  </style>
+ </head>
+ <body>
+	 <div id='pei' onclick='cambia()' style='display:none'></div>
+	 <div id='annotu'onclick='cumentza()'>
+	 <p>Ses intrau in sterrimatic, s'aina po cantadoris.<br>
+	 Innoi ti podis esercitai a cumponni sterrinas po mutetu longu, crutzu o a frori chi siat.<br>
+	 Asut'e manu o in manera pasiada.<br>
+	 Sa prima vocali est s'acentada: is o e is e cun s'acentu gravi funt de cunsiderai obertas.
+	 Incraca apitzus de sa rima po andai a innantis.<br>
+	 Incraca innoi po cumentzai!
+	  </p>
+	 </div>
+	<script>
+		var pos;
+		var peis=8;
+		
+		function cambia() {
+			if (pos<peis) {
+						document.getElementById('pei').style.fontSize='80px';
+						document.getElementById('pei').innerHTML=rimas[pos]
+						if (pos==peis-2) document.getElementById('pei').style.background='orange';
+						else document.getElementById('pei').style.background='green';
+						pos++;
+						
+					}
+			else if (pos==peis){	
+				cubertantza=rimas[7]+" "+rimas[5]+" "+rimas[3]+" "+rimas[1]+"<br>"+rimas[6]+" "+rimas[4]+" "+rimas[2]+" "+rimas[0]
+				document.getElementById('pei').style.fontSize='50px';			
+				document.getElementById('pei').innerHTML=cubertantza
+				document.getElementById('pei').style.background='#BBAAAA';
+				pos++;
+			}
+			else {
+				cumentza();
+			}
+		}
+		function cumentza() {
+			document.getElementById('pei').style.display='block';
+			document.getElementById('annotu').style.display='none';
+			pos=0;
+			rimas=sterri()
+			cambia();
+		}
+	</script>
+ </body>
+</html>
